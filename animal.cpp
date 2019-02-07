@@ -4,45 +4,41 @@
 
 #include "animal.hpp"
 
-animal::ostream& operator<<(ostream& os,animal& animal){
-    for(int x = 0; x < animal.xcord;x++){
-        for(int y = 0; y<animal.ycord;y++){
-            os<<setw(4)<<left<<animal.c.getValue(r,c);
+ostream& operator<<(ostream& os,animal& animal){
 
-        }
         os<<"\n";
-    }
+
     return os;
 
 }
-animal::virtual move(double const xcor, double const ycor){
+void animal:: move(double const xcor, double const ycor){
     xcord = xcor;
     ycord = ycor;
 }
-animal::bool setalive(bool changelife){
+void animal::setalive(bool changelife){
     alive = changelife;
 }
-vanimal::virtual void sleep(){
+void animal:: sleep(){
     cout<<"zzzzzzzzzzzzzzzzzzzz";
 }
-animal::virtual void eat(){
-    cout<< "nom nom nom nom nom"
+void animal:: eat(){
+    cout<< "nom nom nom nom nom";
 }
-animal::void setage(int newage){
+void animal:: setage(int newage){
     age = newage;
 }
-animal::void setxcord(int xc){
+void animal:: setxcord(int xc){
     xcord = xc;
 }
-animal::void setycord(int yc){
+void animal::setycord(int yc){
     xcord = yc;
 }
-animal::double getxcord(){
+double animal:: getxcord(){
     return xcord;
 }
-animal::double getycord(){
+double animal:: getycord(){
     return ycord;
 }
-animal::int getage(){
+int animal:: getage(){
     return age;
 }

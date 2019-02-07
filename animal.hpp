@@ -7,12 +7,12 @@
 
 #include <iostream>
 using namespace std;
-static int count = 0;
+static long count = 0;
 class animal {
 
 private:
     int age;
-    static long id;
+    long id;
     bool alive;
     double xcord;
     double ycord;
@@ -20,8 +20,10 @@ private:
 public:
 
     animal(){
+
         animalptr= nullptr;
-        id++;
+        id=count;
+        count++;
         alive = true;
         age = 0;
         xcord = 0;
@@ -56,9 +58,9 @@ public:
 
     virtual void sleep();
     virtual void eat();
-    virtual int move(double const xcor, double const ycor);
+    virtual void move(double const xcor, double const ycor);
 
-    bool setalive(bool changelife);
+    void setalive(bool changelife);
     friend ostream& operator<<(ostream& os,animal& animal);
     void setage(int newage);
     void setxcord(int xc);

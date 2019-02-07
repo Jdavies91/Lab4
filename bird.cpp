@@ -4,35 +4,29 @@
 #include "animal.hpp"
 #include "bird.hpp"
 
-animal::virtual  int bird::move(double const xcor, double const ycor, double const height) override {
-    xcord = xcor;
-    ycord = ycor;
-    height = height;
-}
-bird::bird(const animal &copybird){
-    birdptr = new int;
-    *birdptr = *copybird.ptr;
-}
-bird::getheight(){
-    return height;
-}
-bird::setheight(double h){
+void bird::move(double const h,double const y, double const x)  {
+    setxcord(x);
+    setycord(y);
     height = h;
 }
-bird::sleep(){
-    cout<< "chirpzzzzzzzzz"
-}
-bird::eat(){
-    cout<< "peckpeckpeck"
-}
-bird::ostream& operator<<(ostream& os,bird& bird){
-    for(int x = 0; x < bird.xcord;x++){
-        for(int y = 0; y<bird.ycord;y++){
-            os<<setw(4)<<left<<bird.move(r,c,height);
 
-        }
+double bird::getheight(){
+    return height;
+}
+void bird::setheight(double h){
+    height = h;
+}
+void bird::sleep(){
+    cout<< "chirpzzzzzzzzz";
+}
+void bird::eat(){
+    cout<< "peckpeckpeck";
+}
+ostream& operator<<(ostream& os,bird& bird){
+
+
         os<<"\n";
-    }
+
     return os;
 
 }
