@@ -18,6 +18,9 @@ void animal:: move(double const xcor, double const ycor){
 void animal::setalive(bool changelife){
     alive = changelife;
 }
+void animal::setid(long i){
+    id = i;
+}
 void animal:: sleep(){
     cout<<"zzzzzzzzzzzzzzzzzzzz";
 }

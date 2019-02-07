@@ -11,25 +11,27 @@ private:
     double height;
     bird *birdptr;
     bool alive;
-    long id;
+
 public:
 
     bird(){
             height = 0;
             birdptr = nullptr;
     }
-    bird(int height, int age, int xcord, int ycord):animal(age,xcord,ycord){
+    bird(int h, int age, int xcord, int ycord):animal(age,xcord,ycord){
 
-        id = count;
-        alive = true;
-        count++;
-        age = age;
-        xcord = xcord;
-        ycord = ycord;
-        height = height;
+        setid(count++);
+
+        setalive(alive);
+
+        setage(age);
+        setalive(alive);
+        setxcord(xcord);
+        setycord(ycord);
+        height = h;
 
     }
-    bird(const animal &copybird){
+    bird(const bird &copybird){
         birdptr = new bird;
         *birdptr = copybird;
     }

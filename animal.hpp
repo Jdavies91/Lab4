@@ -68,6 +68,7 @@ public:
     double getxcord();
     double getycord();
     int getage();
+    void setid(long i);
 
 };
 
