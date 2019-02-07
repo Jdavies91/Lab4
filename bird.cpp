@@ -13,9 +13,26 @@ bird::bird(const animal &copybird){
     birdptr = new int;
     *birdptr = *copybird.ptr;
 }
-getheight(){
+bird::getheight(){
     return height;
 }
-setheight(double h){
+bird::setheight(double h){
     height = h;
+}
+bird::sleep(){
+    cout<< "chirpzzzzzzzzz"
+}
+bird::eat(){
+    cout<< "peckpeckpeck"
+}
+bird::ostream& operator<<(ostream& os,bird& bird){
+    for(int x = 0; x < bird.xcord;x++){
+        for(int y = 0; y<bird.ycord;y++){
+            os<<setw(4)<<left<<bird.move(r,c,height);
+
+        }
+        os<<"\n";
+    }
+    return os;
+
 }

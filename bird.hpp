@@ -37,6 +37,7 @@ public:
     void eat();
     getheight();
     setheight(double h);
+    friend ostream& operator<<(ostream& os,animal& animal);
 
 };
 
