@@ -10,13 +10,21 @@ class bird : public animal {
 private:
     double height;
     bird *birdptr;
-    bool alive;
+    bool alive=true;
 
 public:
-
+    bool booldefault = true;
+    int intdefualt=0;
+    double dbldefault=0;
     bird(){
             height = 0;
             birdptr = nullptr;
+        setalive(alive);
+
+        setage(intdefualt);
+        setalive(booldefault);
+        setxcord(dbldefault);
+        setycord(dbldefault);
     }
     bird(int h, int age, int xcord, int ycord):animal(age,xcord,ycord){
 

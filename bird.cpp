@@ -24,9 +24,10 @@ void bird::eat(){
 }
 ostream& operator<<(ostream& os,bird& bird){
 
-
         os<<"\n";
 
     return os;
 
 }
+
+

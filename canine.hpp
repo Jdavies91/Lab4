@@ -13,17 +13,28 @@ private:
     bool alive;
     long id;
 public:
+    bool isalive = true;
+    int intdefualt=0;
+    double dbldefault=0;
+
+    canine(){
+        canineptr = nullptr;
+        setage(intdefualt);
+        setalive(isalive);
+        setxcord(dbldefault);
+        setycord(dbldefault);
+
+    }
+
+
     canine(int age, double xcord,double ycord):animal(age, xcord,ycord){
         canineptr = nullptr;
         setid(count++);
-
-        setycord(ycord);
-        setxcord(xcord);
+        setycord(dbldefault);
+        setxcord(dbldefault);
         setalive(alive);
         }
-        canine(){
-        canineptr = nullptr;
-        }
+
 
         canine(const canine &copycanine){
            canineptr = new canine;
@@ -36,13 +47,12 @@ public:
             canineptr = nullptr;
         }
     }
-        void move();
-        void sleep();
-        void eat();
+    void move();
+    void sleep();
+    void eat();
 
         friend ostream& operator<<(ostream& os,canine& canine);
-
-        string hunt(animal& a);
+        bool hunt(animal& a);
 
 
 };

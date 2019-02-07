@@ -10,16 +10,15 @@ void canine::sleep(){
 void canine::eat(){
     cout<<"yumyumyum";
 }
-String canine::hunt(animal& a){
-    String result;
-    canine.move()
-    a.move();
+bool canine::hunt(animal& a){
+    double animalx =a.getxcord();
+    double animaly =a.getycord();
+    return false;
 }
-ostream& operator<<(ostream& os,canine& canine){
+ostream& operator<<(ostream& os,canine& canine) {
 
 
-    os<<"\n";
+    os << "\n";
 
     return os;
-
 }

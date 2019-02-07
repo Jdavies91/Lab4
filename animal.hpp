@@ -70,6 +70,9 @@ public:
     int getage();
     void setid(long i);
 
+
+    bool isabird();
+
 };
 
 
