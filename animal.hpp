@@ -1,6 +1,6 @@
 //
-// Created by Owner on 2019-02-06.
-//
+// Created by jonathan davies on 2019-02-06.
+//this is the hpp file for animal class that instialized the animals
 
 #ifndef LAB4_ANIMAL_HPP
 #define LAB4_ANIMAL_HPP
@@ -8,8 +8,10 @@
 #include <iostream>
 using namespace std;
 static long count = 0;
-class animal {
 
+//parent class of bird and canine
+class animal {
+// initialized protected varibles
 protected:
     int age;
     long id;
@@ -17,22 +19,29 @@ protected:
     double xcord;
     double ycord;
     double  height;
-
+// intialized public varibles
 public:
+    double const two = 2;
+    double const three = 3;
+    double const four = 4;
+    double const five = 5;
+    double const zero = 0;
 
+    //animal default constructor
     animal(){
 
 
         id=count;
         count++;
         alive = true;
-        age = 0;
-        xcord = 0;
-        ycord = 0;
-        height=0;
+        age = zero;
+        xcord = zero;
+        ycord = zero;
+        height = zero;
     }
 
-    animal(int a, double x,double y){
+    // animal override destructor
+    animal(int a, double x, double y){
 
         id = count++;
         alive = true;
@@ -40,9 +49,11 @@ public:
         age = a;
         xcord = x;
         ycord = y;
-        height=0;
+        height = zero;
 
     }
+
+    // copy constructor
     animal(animal &copyanimal){
         xcord = copyanimal.xcord;
         ycord = copyanimal.ycord;
@@ -50,31 +61,49 @@ public:
         age = copyanimal.age;
         alive = copyanimal.alive;
     }
-\
+
+    //destrouctor
     ~animal(void){
 
     }
 
+    //inialized the function
     animal(const animal &copyanimal);
+
+    //virtual function for polymorphism in different classes
     virtual std::ostream& print(ostream& os);
-    friend ostream& operator<<(ostream& os,animal& animal);
+
 
     virtual void sleep();
+
     virtual void eat();
-    virtual void move(double const xcor, double const ycor,double height);
+
+    virtual void move(double const xcor, double const ycor, double height);
+
+    friend ostream &operator<<(ostream &os, animal &animal);
 
     void setalive(bool changelife);
+
     bool setalive();
+
     void setage(int newage);
+
     void setxcord(int xc);
+
     void setycord(int yc);
+
     double getxcord();
+
     double getheight();
+
     double getycord();
+
     int getage();
+
     void setid(long i);
+
     void setheight(double height);
-    void hunt(animal* a);
+
     bool isabird();
 
 };

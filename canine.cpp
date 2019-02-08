@@ -15,9 +15,9 @@ void canine::hunt(animal* a){
     double animalx =a->getxcord();
     double animaly =a->getycord();
     double animalh =a->getheight();
-    double caninex = a->getxcord();
-    double caniney = a->getycord();
-    double canineh = 1;
+    double caninex = this->getxcord();
+    double caniney = this->getycord();
+    double canineh = zero;
 
     double totalx,totaly, totalh;
 
@@ -25,7 +25,8 @@ void canine::hunt(animal* a){
     totaly=animaly-caniney;
     totalh=animalh-canineh;
 
-    if(abs(totalx)<=1&&abs(totaly)<=1&&abs(totalh)<=1){
+    if (abs(totalx) < 1 && abs(totaly) < 1 && abs(totalh) < 1) {
+
         a->setalive(false);
         cout<<"\nCanine hunt was a success\n";
     }else{
@@ -43,7 +44,7 @@ ostream& operator<<(ostream& os,canine& canine){
 }
 void canine::move(double const  x,double const  y,double const  h){
 
-    animal::move(x,y,0);
+    animal::move(x, y, zero);
 }
 ostream& canine::print(ostream& os){
     os<<"i am a canine";

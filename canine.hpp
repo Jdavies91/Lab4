@@ -1,36 +1,30 @@
 //
-// Created by Owner on 2019-02-06.
-//
+// Created by Jonathan Davies on 2019-02-06.
+// Intialized the canine class
 
 #ifndef LAB4_CANINE_HPP
 #define LAB4_CANINE_HPP
 
 #include "animal.hpp"
 
+//canine class is a child of fthe animal class
 class canine : public animal{
-private:
-
-    bool alive;
-    long id;
+// sets the public class varibles
 public:
-    bool isalive = true;
-    int intdefualt=0;
-    double dbldefault=0;
-
-
-
-
+    // constructor overides the cordinates
     canine(int age, double xcord,double ycord):  animal(age,xcord,ycord){};
 
+    //copy constructor
+    canine(const canine &copycanine) {
+        xcord = copycanine.xcord;
+        ycord = copycanine.ycord;
+        height = copycanine.height;
+        age = copycanine.age;
+        alive = copycanine.alive;
+    }
 
-        canine(const canine &copycanine){
-            xcord = copycanine.xcord;
-            ycord = copycanine.ycord;
-            height= copycanine.height;
-            age = copycanine.age;
-            alive = copycanine.alive;
-         }
-        virtual ~canine() {
+    //desturctor
+    virtual ~canine() {
 
     }
     void move(double const x, double const y, double const h)override;
