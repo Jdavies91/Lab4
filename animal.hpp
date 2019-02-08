@@ -10,67 +10,71 @@ using namespace std;
 static long count = 0;
 class animal {
 
-private:
+protected:
     int age;
     long id;
     bool alive;
     double xcord;
     double ycord;
-    animal *animalptr;
+    double  height;
+
 public:
 
     animal(){
 
-        animalptr= nullptr;
+
         id=count;
         count++;
         alive = true;
         age = 0;
         xcord = 0;
         ycord = 0;
+        height=0;
     }
 
-    animal(int age, double xcord,double ycord){
-        animalptr= nullptr;
-        id = count;
+    animal(int a, double x,double y){
+
+        id = count++;
         alive = true;
-        count++;
-        age = age;
-        xcord = xcord;
-        ycord = ycord;
+
+        age = a;
+        xcord = x;
+        ycord = y;
+        height=0;
 
     }
     animal(animal &copyanimal){
-        animalptr = new animal;
-        *animalptr= *&copyanimal;
+        xcord = copyanimal.xcord;
+        ycord = copyanimal.ycord;
+        height= copyanimal.height;
+        age = copyanimal.age;
+        alive = copyanimal.alive;
     }
 \
     ~animal(void){
-        if(animalptr != nullptr){
-            delete[] animalptr;
-            animalptr = nullptr;
 
-        }
-        return;
     }
-    friend ostream& operator<<(ostream& os,animal& animal);
+
     animal(const animal &copyanimal);
+    virtual std::ostream& print(ostream& os);
+    friend ostream& operator<<(ostream& os,animal& animal);
 
     virtual void sleep();
     virtual void eat();
-    virtual void move(double const xcor, double const ycor);
+    virtual void move(double const xcor, double const ycor,double height);
 
     void setalive(bool changelife);
-    friend ostream& operator<<(ostream& os,animal& animal);
+    bool setalive();
     void setage(int newage);
     void setxcord(int xc);
     void setycord(int yc);
     double getxcord();
+    double getheight();
     double getycord();
     int getage();
     void setid(long i);
-
-
+    void setheight(double height);
+    void hunt(animal* a);
     bool isabird();
 
 };

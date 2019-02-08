@@ -9,7 +9,7 @@
 
 class canine : public animal{
 private:
-    canine *canineptr;
+
     bool alive;
     long id;
 public:
@@ -17,42 +17,30 @@ public:
     int intdefualt=0;
     double dbldefault=0;
 
-    canine(){
-        canineptr = nullptr;
-        setage(intdefualt);
-        setalive(isalive);
-        setxcord(dbldefault);
-        setycord(dbldefault);
-
-    }
 
 
-    canine(int age, double xcord,double ycord):animal(age, xcord,ycord){
-        canineptr = nullptr;
-        setid(count++);
-        setycord(dbldefault);
-        setxcord(dbldefault);
-        setalive(alive);
-        }
+
+    canine(int age, double xcord,double ycord):  animal(age,xcord,ycord){};
 
 
         canine(const canine &copycanine){
-           canineptr = new canine;
-
-            *canineptr = copycanine;
+            xcord = copycanine.xcord;
+            ycord = copycanine.ycord;
+            height= copycanine.height;
+            age = copycanine.age;
+            alive = copycanine.alive;
          }
         virtual ~canine() {
-        if (canineptr != nullptr) {
-            delete[] canineptr;
-            canineptr = nullptr;
-        }
+
     }
-    void move();
+    void move(double const x, double const y, double const h)override;
+
+    ostream& print(std::ostream& out);
     void sleep();
     void eat();
 
         friend ostream& operator<<(ostream& os,canine& canine);
-        bool hunt(animal& a);
+        void hunt(animal* a);
 
 
 };

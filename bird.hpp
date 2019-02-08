@@ -8,52 +8,36 @@
 
 class bird : public animal {
 private:
-    double height;
-    bird *birdptr;
+
+
     bool alive=true;
 
 public:
-    bool booldefault = true;
-    int intdefualt=0;
-    double dbldefault=0;
-    bird(){
-            height = 0;
-            birdptr = nullptr;
-        setalive(alive);
+    bool  booldefault = true;
+    int  intdefualt=0;
+    double  dbldefault=0;
 
-        setage(intdefualt);
-        setalive(booldefault);
-        setxcord(dbldefault);
-        setycord(dbldefault);
-    }
-    bird(int h, int age, int xcord, int ycord):animal(age,xcord,ycord){
 
-        setid(count++);
+    bird( int age, double xcord, double ycord,double h):  animal(age,xcord,ycord){
 
-        setalive(alive);
-
-        setage(age);
-        setalive(alive);
-        setxcord(xcord);
-        setycord(ycord);
         height = h;
 
     }
     bird(const bird &copybird){
-        birdptr = new bird;
-        *birdptr = copybird;
+        xcord = copybird.xcord;
+        ycord = copybird.ycord;
+        height= copybird.height;
+        age = copybird.age;
+        alive = copybird.alive;
     }
     virtual ~bird(){
-            if(birdptr != nullptr){
-                    delete[] birdptr;
-                    birdptr = nullptr;
-            }
     }
+    std::ostream& print(ostream& os);
     void sleep();
     void eat();
     double getheight();
     void setheight(double h);
-    void move(double const height, double const y, const double x);
+    void move(double const x, double const y, const double h);
     friend ostream& operator<<(ostream& os,bird& bird);
 
 };

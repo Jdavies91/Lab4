@@ -4,9 +4,9 @@
 #include "animal.hpp"
 #include "bird.hpp"
 
-void bird::move(double const h,double const y, double const x)  {
-    setxcord(x);
-    setycord(y);
+void bird::move(double const x,double const y, double const h) {
+    ycord =y;
+    xcord = x;
     height = h;
 }
 
@@ -17,17 +17,28 @@ void bird::setheight(double h){
     height = h;
 }
 void bird::sleep(){
-    cout<< "chirpzzzzzzzzz";
+    cout<< "chirpzzzzzzzzz\n";
 }
 void bird::eat(){
-    cout<< "peckpeckpeck";
+    cout<< "\npeckpeckpeck\n";
 }
 ostream& operator<<(ostream& os,bird& bird){
 
-        os<<"\n";
+        bird.print(os);
 
     return os;
 
+}
+
+ostream& bird::print(ostream& os){
+    string life = "dead";
+    if(!alive ){
+        os<<"i am a bird\n I am dead";
+    }else{
+        os<<"i am a bird\n I am alive";
+    }
+
+    return os;
 }
 
 
